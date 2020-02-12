@@ -42,4 +42,7 @@ from functools import lru_cache
 def fib(n): #funcao fibonacci usando lru_cache
 	if n <=2: return 1
 	return f[n] = fib(n-1)+fib(n-2)
-	
+"""
+@ --> decorador é um recurso avançado de linguagens, onde você faz um "envelope"
+da sua função , dando super poderes para ela
+"""
