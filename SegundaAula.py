@@ -28,9 +28,9 @@ print(lista2)
 print("_"*50)
 
 """
-Pyhton tem ponteiros, só que euos uso em alto nível.
+Pyhton tem ponteiros, só que eu os uso em alto nível.
 Em C manipulo ponteiros em baixo nível.
-A memoria pode ser visata como um vetor
+A memoria pode ser vista como um vetor
 gigantesco de bytes, cada índice é o endereço.
 Em C char ocupa um byte, int ocupa 4 bytes.
 
@@ -48,5 +48,5 @@ int *v;
 v pode significar duas coisas, um ponteiro para um único inteiro, ou um vetor
 que é alocado em tempo de execucão
 #em casa acesse bit.ly/fatecED
-#Lá tem um link do dropbox do código em C
+#lá tem um link do dropbox do código em C
 """
