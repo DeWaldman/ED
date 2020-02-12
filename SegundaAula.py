@@ -19,7 +19,7 @@ print(lista2)
 print("_"*50)
 
 
-""" uma copia e nao um ponteiro"""
+""" uma copia e nao um ponteiro """
 lista1 = [1, 2, 3]
 lista2=list(lista1)
 lista1[0] = 42
@@ -49,4 +49,5 @@ v pode significar duas coisas, um ponteiro para um único inteiro, ou um vetor
 que é alocado em tempo de execucão
 #em casa acesse bit.ly/fatecED
 #lá tem um link do dropbox do código em C
+
 """
