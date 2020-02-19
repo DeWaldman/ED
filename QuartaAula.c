@@ -49,14 +49,14 @@ void questao13(){
   //craindo duas listas encadeadas
     celula *lst, *lst2;
     lst = malloc(sizeof(celula));
-	lst2 = malloc(sizeof(celula));
+    lst2 = malloc(sizeof(celula));
     lst->seg = NULL; lst2->seg = NULL;
     for (a=0;a<10;a++){
       Insere(a, lst);
 	  Insere((a+1), lst2);
 	}
   //---------------------------------
-  lst = lst2->seg;
+  
   Imprima(lst);
   
 }
