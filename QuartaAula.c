@@ -12,7 +12,8 @@ struct cel {
 void Imprima (celula *lst) {
      celula *p;
      for (p = lst->seg; p != NULL; p = p->seg)
-         printf ("%d\n", p->conteudo);
+         printf ("%d ", p->conteudo);
+	 printf("\n");
 }
 
 void Insere(int y, celula *p){
@@ -25,10 +26,24 @@ void Insere(int y, celula *p){
 
 
 //___________________________________________Q U E S T O E S___________________________________________
+
 /*9) VETOR PARA LISTA.
 Escreva uma função que copie um
 vetor para uma lista encadeada*/
-void questao9(){
+
+/*13) CONCATENAÇÃO.
+Escreva uma função que concatene
+duas listas encadeadas (isto é, “amarre” a segunda no
+fim da primeira)*/
+
+/*19) LIBERAÇÃO. Escreva uma função que aplique a função
+free
+a todas as células de uma lista encadeada.
+Estamos supondo, é claro, que cada célula da lista foi
+originalmente alocada por
+malloc.*/
+
+void questao9(){//___________________________________________________________________________________________________
   int a;
   int vetor[6] = {4, 8, 15, 16, 23, 42};
   celula *lst;
@@ -40,11 +55,10 @@ void questao9(){
   Imprima(lst);
 }
 
-/*13) CONCATENAÇÃO.
-Escreva uma função que concatene
-duas listas encadeadas (isto é, “amarre” a segunda no
-fim da primeira)*/
-void questao13(){
+
+
+
+void questao13(){//___________________________________________________________________________________________________
   int a;
   //craindo duas listas encadeadas
     celula *lst, *lst2;
@@ -53,16 +67,33 @@ void questao13(){
     lst->seg = NULL; lst2->seg = NULL;
     for (a=0;a<10;a++){
       Insere(a, lst);
-	  Insere((a+1), lst2);
+	  Insere((a), lst2);
 	}
   //---------------------------------
-  
+  celula *p;//GET ULTIMO PONTEIRO 
+  p = lst->seg;
+  while(p->seg!=NULL){
+  	p = p->seg;
+  }
+  p->seg = lst2->seg;
   Imprima(lst);
   
 }
+
+
+void questao18(){//___________________________________________________________________________________________________
+  celula *lst;
+  lst = malloc(sizeof(celula));
+  lst->seg = NULL;
+  for(a=5;a>0;a--){
+    Insere(vetor[a], lst);
+  }
+  celula *p;
+  while(p->seg)
+}
 int main(){
-  questao9();
-  questao13();
+  //questao9();
+  //questao13();
 
   return 0;	
 }
