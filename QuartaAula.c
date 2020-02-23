@@ -2,7 +2,7 @@
 "Programar e C é como dançar num salão muito encerado,
 com um monte de facas na mão.*/
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 struct cel {
        int conteudo;
@@ -13,7 +13,7 @@ void Imprima (celula *lst) {
      celula *p;
      for (p = lst->seg; p != NULL; p = p->seg)
          printf ("%d ", p->conteudo);
-	 printf("\n");
+     printf("\n");
 }
 
 void Insere(int y, celula *p){
@@ -36,7 +36,7 @@ Escreva uma função que concatene
 duas listas encadeadas (isto é, “amarre” a segunda no
 fim da primeira)*/
 
-/*19) LIBERAÇÃO. Escreva uma função que aplique a função
+/*18) LIBERAÇÃO. Escreva uma função que aplique a função
 free
 a todas as células de uma lista encadeada.
 Estamos supondo, é claro, que cada célula da lista foi
@@ -67,13 +67,13 @@ void questao13(){//_____________________________________________________________
     lst->seg = NULL; lst2->seg = NULL;
     for (a=0;a<10;a++){
       Insere(a, lst);
-	  Insere((a), lst2);
-	}
+      Insere((a), lst2);
+    }
   //---------------------------------
   celula *p;//GET ULTIMO PONTEIRO 
   p = lst->seg;
   while(p->seg!=NULL){
-  	p = p->seg;
+      p = p->seg;
   }
   p->seg = lst2->seg;
   Imprima(lst);
@@ -82,18 +82,29 @@ void questao13(){//_____________________________________________________________
 
 
 void questao18(){//___________________________________________________________________________________________________
+  int a;
   celula *lst;
   lst = malloc(sizeof(celula));
   lst->seg = NULL;
   for(a=5;a>0;a--){
-    Insere(vetor[a], lst);
+    Insere(a, lst);
   }
+  celula *var;
   celula *p;
-  while(p->seg)
+  p = lst->seg;
+  while(p->seg != NULL){
+    var = p->seg;
+    free(p);
+    p = var;
+  }
+  var = p->seg;
+  free(p);
+  p = var;
+  free(lst);
 }
 int main(){
   //questao9();
   //questao13();
-
-  return 0;	
+  questao18();
+  return 0;    
 }
