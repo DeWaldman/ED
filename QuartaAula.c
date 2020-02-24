@@ -1,8 +1,8 @@
-/*Ponteiros em C são de baixo nivel, e muito perigosos.
+/*Ponteiros em C são de baixo nivel, sao muito perigosos.
 "Programar e C é como dançar num salão muito encerado,
 com um monte de facas na mão.*/
 
-//#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 struct cel {
        int conteudo;
@@ -102,9 +102,55 @@ void questao18(){//_____________________________________________________________
   p = var;
   free(lst);
 }
+
+
+void questao4(){
+  int a;
+  celula *lst;
+  lst = malloc(sizeof(celula));
+  lst->seg = NULL;
+  for(a=10;a<50;a++){
+    Insere(a, lst);
+  }
+  celula *p;
+  p=lst;
+  int maior, menor;
+  menor = lst->conteudo;
+  maior = lst->conteudo;
+  while(p->seg != NULL){
+    if(p->conteudo < menor) menor = p->conteudo;
+    else if(p->conteudo > maior) maior = p->conteudo;
+    p=p->seg;
+  }
+  if(p->conteudo < menor) menor = p->conteudo;
+  else if(p->conteudo > maior) maior = p->conteudo;
+  printf("%d %d \n", maior, menor);
+}
+void questa4recursiva(celula *p){
+  int a;
+  celula *lst;
+  lst = malloc(sizeof(celula));
+  lst->seg = NULL;
+  for(a=10;a<50;a++){
+    Insere(a, lst);
+  }
+  
+  p=lst;
+  int maior, menor;
+  menor = lst->conteudo;
+  maior = lst->conteudo;
+  if(p->seg == NULL){
+    printf("%d %d\n", maior, menor);
+    
+  }
+  else{
+
+  }
+}
 int main(){
   //questao9();
   //questao13();
-  questao18();
+  //questao18();
+  questao4();
   return 0;    
 }
