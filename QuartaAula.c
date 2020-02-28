@@ -69,3 +69,41 @@ void deletar_lista(celula *lst){
   p = var;
   free(lst);
 }
+
+
+//_______________________________________A C H A  O  M I N I M O_______________________________________
+//encontra o minimo; retorna a celula.
+celula procurar_minimo(celula *lst){
+  celula *var, *minimo;
+  int menor;
+  menor = lst->seg->conteudo;
+  for(var=lst->seg;var->seg!=NULL;var=var->seg){
+    if(var->conteudo < menor){
+      menor = var->conteudo;
+      lst = var;
+    }
+  }
+  if(var->conteudo < menor){
+    menor = var->conteudo;
+    lst = var;
+  }
+  return *lst;
+}
+
+//versao recursiva
+celula procura_minimo_recursivo(celula *minima, celula *lst){
+  if(minima->conteudo > lst->conteudo){
+    minima = lst;
+  }
+  if(lst->seg == NULL){
+    return *minima;
+  }
+  return procura_minimo_recursivo(minima, lst->seg);
+}
+
+
+//_______________________________________I N V E R S A O_______________________________________
+//inverte uma lista.
+void inverter_lista(celula *lst){
+	
+}
